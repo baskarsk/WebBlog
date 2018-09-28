@@ -30,6 +30,7 @@
     <properties>
         <org.springframework.version>3.0.5.RELEASE</org.springframework.version>
         <org.slf4j.version>1.6.1</org.slf4j.version>
+          <maven.compiler.version>3.8.0</maven.compiler.version>
     </properties>
     <repositories>
         <!-- For Hibernate Validator -->
@@ -47,9 +48,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                   <version>${maven.compiler.version}</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <showWarnings>true</showWarnings>
                 </configuration>
             </plugin>
@@ -86,6 +88,16 @@
                     <filename>spring-ejb3-webapp.war</filename>
                 </configuration>
             </plugin>
+            
+            <plugin>
+			    <groupId>org.wildfly.plugins</groupId>
+			    <artifactId>wildfly-maven-plugin</artifactId>
+			    <version>1.2.2.Final</version>
+			    <configuration>
+			 	   <filename>spring-ejb3-webapp.war</filename>
+			    </configuration>
+			</plugin>
+			
         </plugins>
     </build>
 
